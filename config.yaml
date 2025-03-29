@@ -1,0 +1,68 @@
+name: "Actual Helpers for Home Assistant"
+description: "This is the Actual Helpers for Home Assistant integration"
+version: "1.0.0"
+slug: "actual_helpers_for_home_assistant"
+arch:
+  - aarch64
+  - amd64
+  - armhf
+  - armv7
+  - i386
+options:
+  ACTUAL_SERVER_URL: "https://<Actual Budget server URL>"
+  ACTUAL_SERVER_PASSWORD: "<Actual Budget server password>"
+  ACTUAL_SYNC_ID: <Actual Budget sync ID>"
+  # allow self-signed SSL certs
+  NODE_TLS_REJECT_UNAUTHORIZED: 0
+
+  # optional, for encrypted files
+  ACTUAL_FILE_PASSWORD: "<file password>"
+
+  # optional, if you want to use a different cache directory
+  ACTUAL_CACHE_DIR: "./cache"
+
+  # optional, name of the payee for added interest transactions
+  INTEREST_PAYEE_NAME: "Loan Interest"
+
+  # optional, name of the payee for added interest transactions
+  INVESTMENT_PAYEE_NAME: "Investment"
+  # optional, name of the cateogry group for added investment tracking transactions
+  INVESTMENT_CATEGORY_GROUP_NAME: "Income"
+  # optional, name of the category for added investment tracking transactions
+  INVESTMENT_CATEGORY_NAME: "Investment"
+
+  # optional, for logging into SimpleFIN
+  SIMPLEFIN_CREDENTIALS: "<credentials - not the setup token!>"
+
+  # optional, for retrieving Bitcoin Price (these default to Kraken USD)
+  BITCOIN_PRICE_URL: "https://api.kraken.com/0/public/Ticker?pair=xbtusd"
+  BITCOIN_PRICE_JSON_PATH: "result.XXBTZUSD."
+schema:
+  ACTUAL_SERVER_URL: str
+  ACTUAL_SERVER_PASSWORD: str
+  ACTUAL_SYNC_ID: str
+  # allow self-signed SSL certs
+  NODE_TLS_REJECT_UNAUTHORIZED: int
+
+  # optional, for encrypted files
+  ACTUAL_FILE_PASSWORD: "str?"
+
+  # optional, if you want to use a different cache directory
+  ACTUAL_CACHE_DIR: "str?"
+
+  # optional, name of the payee for added interest transactions
+  INTEREST_PAYEE_NAME: "str?"
+
+  # optional, name of the payee for added interest transactions
+  INVESTMENT_PAYEE_NAME: "str?"
+  # optional, name of the cateogry group for added investment tracking transactions
+  INVESTMENT_CATEGORY_GROUP_NAME: "str?"
+  # optional, name of the category for added investment tracking transactions
+  INVESTMENT_CATEGORY_NAME: "str?"
+
+  # optional, for logging into SimpleFIN
+  SIMPLEFIN_CREDENTIALS: "password?"
+
+  # optional, for retrieving Bitcoin Price (these default to Kraken USD)
+  BITCOIN_PRICE_URL: "url?"
+  BITCOIN_PRICE_JSON_PATH: "str?"

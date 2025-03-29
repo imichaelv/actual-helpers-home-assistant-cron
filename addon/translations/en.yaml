@@ -1,0 +1,55 @@
+configuration:
+  ACTUAL_SERVER_URL:
+    name: Actual Server URL
+    description: The url to talk to ActualBudget.
+  ACTUAL_SERVER_PASSWORD:
+    name: Actual Server Password
+    description: Password to connect to Actual Budget
+  ACTUAL_SYNC_ID:
+    name: Actual Sync ID
+    description: The ID to sync with
+  # allow self-signed SSL certs
+  NODE_TLS_REJECT_UNAUTHORIZED:
+    name: Self-signed SSL certs
+    description: allow self-signed SSL certs
+
+  # optional, for encrypted files
+  ACTUAL_FILE_PASSWORD:
+    name: File Password
+    description: optional, for encrypted files
+
+  # optional, if you want to use a different cache directory
+  ACTUAL_CACHE_DIR:
+    name: Cache dir
+    description: optional, if you want to use a different cache directory
+
+  # optional, name of the payee for added interest transactions
+  INTEREST_PAYEE_NAME:
+    name: Interest Payee name
+    description: optional, name of the payee for added interest transactions
+
+  # optional, name of the payee for added interest transactions
+  INVESTMENT_PAYEE_NAME:
+    name: Investment Payee name
+    description: optional, name of the payee for added interest transactions
+  # optional, name of the cateogry group for added investment tracking transactions
+  INVESTMENT_CATEGORY_GROUP_NAME:
+    name: Investment category group name
+    description: optional, name of the cateogry group for added investment tracking transactions
+
+  # optional, name of the category for added investment tracking transactions
+  INVESTMENT_CATEGORY_NAME:
+    name: investment category name
+    description: optional, name of the category for added investment tracking transactions
+  # optional, for logging into SimpleFIN
+  SIMPLEFIN_CREDENTIALS:
+    name: Simplefin credentials
+    description: optional, for logging into SimpleFIN
+
+  # optional, for retrieving Bitcoin Price (these default to Kraken USD)
+  BITCOIN_PRICE_URL:
+    name: Bitcoint Price url
+    description: optional, for retrieving Bitcoin Price (these default to Kraken USD)
+  BITCOIN_PRICE_JSON_PATH:
+    name: Bitcoin Price JSON path
+    description: Bitcoin Price JSON path
