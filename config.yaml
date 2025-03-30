@@ -1,6 +1,6 @@
 name: "Actual Helpers for Home Assistant"
 description: "This is the Actual Helpers for Home Assistant integration"
-version: "1.0.3"
+version: "1.0.4"
 slug: "actual_helpers_for_home_assistant"
 arch:
   - aarch64
@@ -17,29 +17,6 @@ options:
   # allow self-signed SSL certs
   NODE_TLS_REJECT_UNAUTHORIZED: 0
 
-  # optional, for encrypted files
-  ACTUAL_FILE_PASSWORD:
-
-  # optional, if you want to use a different cache directory
-  ACTUAL_CACHE_DIR:
-
-  # optional, name of the payee for added interest transactions
-  INTEREST_PAYEE_NAME:
-
-  # optional, name of the payee for added interest transactions
-  INVESTMENT_PAYEE_NAME:
-  # optional, name of the cateogry group for added investment tracking transactions
-  INVESTMENT_CATEGORY_GROUP_NAME:
-  # optional, name of the category for added investment tracking transactions
-  INVESTMENT_CATEGORY_NAME:
-
-  # optional, for logging into SimpleFIN
-  SIMPLEFIN_CREDENTIALS:
-
-  # optional, for retrieving Bitcoin Price (these default to Kraken USD)
-  BITCOIN_PRICE_URL: "https://api.kraken.com/0/public/Ticker?pair=xbtusd"
-  BITCOIN_PRICE_JSON_PATH: "result.XXBTZUSD.c[0]"
-  BITCOIN_PAYEE_NAME: "Bitcoin Price Change"
 schema:
 
   ACTUAL_SERVER_URL: str
