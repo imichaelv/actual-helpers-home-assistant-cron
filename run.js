@@ -11,21 +11,43 @@ async function runActualHelpersForHomeAssistant() {
         process.env.ACTUAL_SERVER_PASSWORD = options.ACTUAL_SERVER_PASSWORD
         process.env.ACTUAL_SYNC_ID = options.ACTUAL_SYNC_ID
 
-        process.env.NODE_TLS_REJECT_UNAUTHORIZED= options.NODE_TLS_REJECT_UNAUTHORIZED
-        process.env.ACTUAL_FILE_PASSWORD = options.ACTUAL_FILE_PASSWORD
-        process.env.ACTUAL_CACHE_DIR = options.ACTUAL_CACHE_DIR
+        if (options.NODE_TLS_REJECT_UNAUTHORIZED) {
+            process.env.NODE_TLS_REJECT_UNAUTHORIZED= options.NODE_TLS_REJECT_UNAUTHORIZED
+        }
+        if (optiosn.ACTUAL_FILE_PASSWORD) {
+            process.env.ACTUAL_FILE_PASSWORD = options.ACTUAL_FILE_PASSWORD
+        }
+        if (options.ACTUAL_CACHE_DIR) {
+            process.env.ACTUAL_CACHE_DIR = options.ACTUAL_CACHE_DIR
+        }
 
-        process.env.INTEREST_PAYEE_NAME = options.INTEREST_PAYEE_NAME
-        process.env.INVESTMENT_PAYEE_NAME = options.INVESTMENT_PAYEE_NAME
+        if (options.INTEREST_PAYEE_NAME) {
+            process.env.INTEREST_PAYEE_NAME = options.INTEREST_PAYEE_NAME
+        }
 
-        process.env.INVESTMENT_CATEGORY_GROUP_NAME = options.INVESTMENT_CATEGORY_GROUP_NAME
-        process.env.INVESTMENT_CATEGORY_NAME = options.INVESTMENT_CATEGORY_NAME
+        if (options.INVESTMENT_PAYEE_NAME) {
+            process.env.INVESTMENT_PAYEE_NAME = options.INVESTMENT_PAYEE_NAME
+        }
+        if (options.INVESTMENT_CATEGORY_GROUP_NAME) {
+            process.env.INVESTMENT_CATEGORY_GROUP_NAME = options.INVESTMENT_CATEGORY_GROUP_NAME
+        }
+        if (options.INVESTMENT_CATEGORY_NAME) {
+            process.env.INVESTMENT_CATEGORY_NAME = options.INVESTMENT_CATEGORY_NAME
+        }
 
-        process.env.SIMPLEFIN_CREDENTIALS = options.SIMPLEFIN_CREDENTIALS
+        if (options.SIMPLEFIN_CREDENTIALS) {
+            process.env.SIMPLEFIN_CREDENTIALS = options.SIMPLEFIN_CREDENTIALS
+        }
 
-        process.env.BITCOIN_PRICE_URL = options.BITCOIN_PRICE_URL
-        process.env.BITCOIN_PRICE_JSON_PATH = options.BITCOIN_PRICE_JSON_PATH
-        process.env.BITCOIN_PAYEE_NAME = options.BITCOIN_PAYEE_NAME
+        if (options.BITCOIN_PRICE_URL) {
+            process.env.BITCOIN_PRICE_URL = options.BITCOIN_PRICE_URL
+        }
+        if (options.BITCOIN_PRICE_JSON_PATH) {
+            process.env.BITCOIN_PRICE_JSON_PATH = options.BITCOIN_PRICE_JSON_PATH
+        }
+        if (options.BITCOIN_PAYEE_NAME) {
+            process.env.BITCOIN_PAYEE_NAME = options.BITCOIN_PAYEE_NAME
+        }
 
         if (options.sync_bank) {
             await execute_script('sync-banks.js')
