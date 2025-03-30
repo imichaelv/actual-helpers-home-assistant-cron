@@ -13,6 +13,28 @@ configuration:
     name: Self-signed SSL certs
     description: allow self-signed SSL certs
 
+  sync_bank:
+    name: Sync Remote Banks
+    description: Sync all remote banks that are configured in Actual Budget, (every run)
+  apply_interest:
+    name: Load Interest Calculator
+    description: Calculates the interest for a loan account and adds the interest transactions to Actual Budget (Once a month)
+  track_home_price:
+    name: Tracking Home Prices (Zillow's Zestimate)
+    description: Track the Zillow Zestimate for a home (Once a month)
+  track_car_prices:
+    name: Tracking Car Prices
+    description: Tracks the Kelley Blue Book value for a car (Once a month)
+  track_investment_account:
+    name: Tracking Investment Accounts
+    description: SimpleFIN accounts only! Tracks the value of an investment account (Once a month)
+  track_bitcoin_price:
+    name: Track Bitcoin Price
+    description: Tracks the value of Bitcoin
+  month_sync_day:
+    name: Synchronize day
+    description: On what day should the monthly synchronize start? (Preferred to be the 1st, but for debugging/first time this can be altered)
+
   # optional, for encrypted files
   ACTUAL_FILE_PASSWORD:
     name: File Password

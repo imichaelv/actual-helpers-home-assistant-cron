@@ -17,11 +17,29 @@ options:
   # allow self-signed SSL certs
   NODE_TLS_REJECT_UNAUTHORIZED: 0
 
+  sync_bank: false
+  apply_interest: false
+  track_home_price: false
+  track_car_prices: false
+  track_investment_account: false
+  track_bitcoin_price: false
+  month_sync_day: 1
+
+
 schema:
 
   ACTUAL_SERVER_URL: str
   ACTUAL_SERVER_PASSWORD: str
   ACTUAL_SYNC_ID: str
+
+  sync_bank: bool
+  apply_interest: bool
+  track_home_price: bool
+  track_car_prices: bool
+  track_investment_account: bool
+  track_bitcoin_price: bool
+  month_sync_day: int
+
   # allow self-signed SSL certs
   NODE_TLS_REJECT_UNAUTHORIZED: int
 
@@ -48,3 +66,4 @@ schema:
   BITCOIN_PRICE_URL: url?
   BITCOIN_PRICE_JSON_PATH: str?
   BITCOIN_PAYEE_NAME: str?
+startup: once
