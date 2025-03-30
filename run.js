@@ -4,8 +4,8 @@ const fs = require('fs')
 
 async function lsExample() {
     try {
-        const options = fs.readFileSync('/data/options.json')
-        console.log('options', options)
+        const options = fs.readFileSync('/data/options.json').toString('utf-8')
+        console.log('options', (options))
 
         console.log('ENV', process.env.ACTUAL_SERVER_URL)
 
