@@ -2,8 +2,9 @@ const util = require('util');
 const exec = util.promisify(require('child_process').exec);
 const fs = require('fs')
 
-async function lsExample() {
+async function runActualHelpersForHomeAssistant() {
     try {
+        console.log("Starting Actual-Helpers for Home Assistant")
         const options = JSON.parse(fs.readFileSync('/data/options.json').toString('utf-8'))
 
         process.env.ACTUAL_SERVER_URL = options.ACTUAL_SERVER_URL
@@ -65,4 +66,4 @@ const execute_script = async (scriptName) => {
     }
 }
 
-lsExample()
+runActualHelpersForHomeAssistant().then(() => console.log("Done..."))
