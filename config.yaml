@@ -8,35 +8,38 @@ arch:
   - armhf
   - armv7
   - i386
+init: false
+
 options:
-  ACTUAL_SERVER_URL: "https://<Actual Budget server URL>"
-  ACTUAL_SERVER_PASSWORD: "<Actual Budget server password>"
-  ACTUAL_SYNC_ID: <Actual Budget sync ID>"
+  ACTUAL_SERVER_URL: null
+  ACTUAL_SERVER_PASSWORD: null
+  ACTUAL_SYNC_ID: null
   # allow self-signed SSL certs
   NODE_TLS_REJECT_UNAUTHORIZED: 0
 
   # optional, for encrypted files
-  ACTUAL_FILE_PASSWORD: "<file password>"
+  ACTUAL_FILE_PASSWORD: null
 
   # optional, if you want to use a different cache directory
-  ACTUAL_CACHE_DIR: "./cache"
+  ACTUAL_CACHE_DIR: null
 
   # optional, name of the payee for added interest transactions
-  INTEREST_PAYEE_NAME: "Loan Interest"
+  INTEREST_PAYEE_NAME: null
 
   # optional, name of the payee for added interest transactions
-  INVESTMENT_PAYEE_NAME: "Investment"
+  INVESTMENT_PAYEE_NAME: null
   # optional, name of the cateogry group for added investment tracking transactions
-  INVESTMENT_CATEGORY_GROUP_NAME: "Income"
+  INVESTMENT_CATEGORY_GROUP_NAME: null
   # optional, name of the category for added investment tracking transactions
-  INVESTMENT_CATEGORY_NAME: "Investment"
+  INVESTMENT_CATEGORY_NAME: null
 
   # optional, for logging into SimpleFIN
-  SIMPLEFIN_CREDENTIALS: "<credentials - not the setup token!>"
+  SIMPLEFIN_CREDENTIALS: null
 
   # optional, for retrieving Bitcoin Price (these default to Kraken USD)
   BITCOIN_PRICE_URL: "https://api.kraken.com/0/public/Ticker?pair=xbtusd"
-  BITCOIN_PRICE_JSON_PATH: "result.XXBTZUSD."
+  BITCOIN_PRICE_JSON_PATH: "result.XXBTZUSD.c[0]"
+  BITCOIN_PAYEE_NAME: "Bitcoin Price Change"
 schema:
   ACTUAL_SERVER_URL: str
   ACTUAL_SERVER_PASSWORD: str
@@ -66,3 +69,4 @@ schema:
   # optional, for retrieving Bitcoin Price (these default to Kraken USD)
   BITCOIN_PRICE_URL: "url?"
   BITCOIN_PRICE_JSON_PATH: "str?"
+  BITCOIN_PAYEE_NAME: "str?"

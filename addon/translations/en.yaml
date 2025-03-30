@@ -53,3 +53,6 @@ configuration:
   BITCOIN_PRICE_JSON_PATH:
     name: Bitcoin Price JSON path
     description: Bitcoin Price JSON path
+  BITCOIN_PAYEE_NAME:
+    name: "Bitcoin Payee name"
+    description: Name of the Bitcoin Payee
