@@ -1,6 +1,6 @@
 name: "Actual Helpers for Home Assistant"
 description: "This is the Actual Helpers for Home Assistant integration"
-version: "1.0.1"
+version: "1.0.2"
 slug: "actual_helpers_for_home_assistant"
 arch:
   - aarch64
@@ -11,9 +11,10 @@ arch:
 init: false
 
 options:
-  ACTUAL_SERVER_URL: null
-  ACTUAL_SERVER_PASSWORD: null
-  ACTUAL_SYNC_ID: null
+  authentication:
+    ACTUAL_SERVER_URL: null
+    ACTUAL_SERVER_PASSWORD: null
+    ACTUAL_SYNC_ID: null
   # allow self-signed SSL certs
   NODE_TLS_REJECT_UNAUTHORIZED: 0
 
@@ -41,32 +42,33 @@ options:
   BITCOIN_PRICE_JSON_PATH: "result.XXBTZUSD.c[0]"
   BITCOIN_PAYEE_NAME: "Bitcoin Price Change"
 schema:
-  ACTUAL_SERVER_URL: str
-  ACTUAL_SERVER_PASSWORD: str
-  ACTUAL_SYNC_ID: str
+  authentication:
+    ACTUAL_SERVER_URL: str
+    ACTUAL_SERVER_PASSWORD: str
+    ACTUAL_SYNC_ID: str
   # allow self-signed SSL certs
   NODE_TLS_REJECT_UNAUTHORIZED: int
 
   # optional, for encrypted files
-  ACTUAL_FILE_PASSWORD: "str?"
+  ACTUAL_FILE_PASSWORD: str?
 
   # optional, if you want to use a different cache directory
-  ACTUAL_CACHE_DIR: "str?"
+  ACTUAL_CACHE_DIR: str?
 
   # optional, name of the payee for added interest transactions
-  INTEREST_PAYEE_NAME: "str?"
+  INTEREST_PAYEE_NAME: str?
 
   # optional, name of the payee for added interest transactions
-  INVESTMENT_PAYEE_NAME: "str?"
+  INVESTMENT_PAYEE_NAME: str?
   # optional, name of the cateogry group for added investment tracking transactions
-  INVESTMENT_CATEGORY_GROUP_NAME: "str?"
+  INVESTMENT_CATEGORY_GROUP_NAME: str?
   # optional, name of the category for added investment tracking transactions
-  INVESTMENT_CATEGORY_NAME: "str?"
+  INVESTMENT_CATEGORY_NAME: str?
 
   # optional, for logging into SimpleFIN
-  SIMPLEFIN_CREDENTIALS: "password?"
+  SIMPLEFIN_CREDENTIALS: password?
 
   # optional, for retrieving Bitcoin Price (these default to Kraken USD)
-  BITCOIN_PRICE_URL: "url?"
-  BITCOIN_PRICE_JSON_PATH: "str?"
-  BITCOIN_PAYEE_NAME: "str?"
+  BITCOIN_PRICE_URL: url?
+  BITCOIN_PRICE_JSON_PATH: str?
+  BITCOIN_PAYEE_NAME: str?

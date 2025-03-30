@@ -1,13 +1,14 @@
 configuration:
-  ACTUAL_SERVER_URL:
-    name: Actual Server URL
-    description: The url to talk to ActualBudget.
-  ACTUAL_SERVER_PASSWORD:
-    name: Actual Server Password
-    description: Password to connect to Actual Budget
-  ACTUAL_SYNC_ID:
-    name: Actual Sync ID
-    description: The ID to sync with
+  authentication:
+    ACTUAL_SERVER_URL:
+      name: Actual Server URL
+      description: The url to talk to ActualBudget.
+    ACTUAL_SERVER_PASSWORD:
+      name: Actual Server Password
+      description: Password to connect to Actual Budget
+    ACTUAL_SYNC_ID:
+      name: Actual Sync ID
+      description: The ID to sync with
   # allow self-signed SSL certs
   NODE_TLS_REJECT_UNAUTHORIZED:
     name: Self-signed SSL certs
