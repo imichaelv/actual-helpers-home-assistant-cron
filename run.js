@@ -14,7 +14,7 @@ async function runActualHelpersForHomeAssistant() {
         if (options.NODE_TLS_REJECT_UNAUTHORIZED) {
             process.env.NODE_TLS_REJECT_UNAUTHORIZED= options.NODE_TLS_REJECT_UNAUTHORIZED
         }
-        if (optiosn.ACTUAL_FILE_PASSWORD) {
+        if (options.ACTUAL_FILE_PASSWORD) {
             process.env.ACTUAL_FILE_PASSWORD = options.ACTUAL_FILE_PASSWORD
         }
         if (options.ACTUAL_CACHE_DIR) {
