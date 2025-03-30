@@ -61,7 +61,7 @@ const execute_script = async (scriptName) => {
         console.log(stdout);
         console.log(stderr);
     } catch (e) {
-        console.log(`failed executing: ${scriptName}` )
+        console.log(`failed executing: ${scriptName}`, e )
     }
 }
 
