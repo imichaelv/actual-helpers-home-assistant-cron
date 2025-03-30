@@ -34,7 +34,7 @@ async function runActualHelpersForHomeAssistant() {
             await execute_script('sync-bitcoin.js')
         }
         const day = new Date().getDate()
-        if (day === options.sync_day) {
+        if (day === options.month_sync_day) {
 
             if (options.apply_interest) {
                 await execute_script('apply-interest.js')

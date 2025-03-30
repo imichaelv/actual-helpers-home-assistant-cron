@@ -1,6 +1,6 @@
 name: "Actual Helpers for Home Assistant"
 description: "This is the Actual Helpers for Home Assistant integration"
-version: "1.0.12"
+version: "1.0.13"
 slug: "actual_helpers_for_home_assistant"
 arch:
   - aarch64
@@ -29,7 +29,7 @@ options:
 schema:
 
   ACTUAL_SERVER_URL: str
-  ACTUAL_SERVER_PASSWORD: str
+  ACTUAL_SERVER_PASSWORD: password
   ACTUAL_SYNC_ID: str
 
   sync_bank: bool
