@@ -4,11 +4,13 @@ const fs = require('fs')
 
 async function lsExample() {
     try {
-        const options = fs.readFileAsync('/data/options.json')
+        const options = fs.readFileSync('/data/options.json')
         console.log('options', options)
+
         console.log('ENV', process.env.ACTUAL_SERVER_URL)
 
-        const { stdout, stderr } = await exec('ls');
+
+        const { stdout, stderr } = await exec('node apply-interest.js');
         console.log('stdout:', stdout);
         console.log('stderr:', stderr);
     } catch (e) {
