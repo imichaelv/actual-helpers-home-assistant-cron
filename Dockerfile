@@ -1,5 +1,5 @@
 ARG BUILD_FROM
-FROM ghcr.io/psybers/actual-helpers as helpers
+FROM ghcr.io/psybers/actual-helpers AS helpers
 FROM $BUILD_FROM as HA_BASE
 
 WORKDIR /usr/src/app
