@@ -10,7 +10,7 @@ RUN apk add --no-cache \
     npm \
     git
 
-
+RUN npm install && npm update
 
 COPY run.js /usr/src/app/run.js
 
