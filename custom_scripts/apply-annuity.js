@@ -27,6 +27,7 @@ require("dotenv").config();
                 const duration = parseInt(note.split('annuityLoanDuration:')[1].split(' ')[0])
                 const amount = parseFloat(note.split('annuityLoanAmount:')[1].split(' ')[0])
                 const startDate = new Date(note.split('annuityLoanAmount:')[1].split(' ')[0])
+                console.log(startDate)
                 let init = (note.indexOf('init:') > -1)
 
                 const currentDate = new Date()
@@ -79,7 +80,7 @@ function calculate(currentDate, startDate, amount, annuityRate, duration, payeeI
             date.setMonth(date.getMonth() + i )
             payment = schedule[i]
             payments.push({
-                date: new Date(date),
+                date,
                 payee: payeeId,
                 amount: payment.principal,
                 cleared: true,
