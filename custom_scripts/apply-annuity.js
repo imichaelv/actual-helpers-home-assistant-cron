@@ -75,7 +75,8 @@ function calculate(currentDate, startDate, amount, annuityRate, duration, payeeI
         let payments = []
 
         Array.from(Array(6)).forEach((_, i) => {
-            const date = startDate.setMonth(startDate.getMonth() + i )
+            const date = startDate
+            date.setMonth(date.getMonth() + i )
             payment = schedule[i]
             payments.push({
                 date,
