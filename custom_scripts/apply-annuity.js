@@ -82,7 +82,7 @@ function calculate(currentDate, startDate, amount, annuityRate, duration, payeeI
             payments.push({
                 date,
                 payee: payeeId,
-                amount: payment.principal,
+                amount: (parseFloat(payment.principal) * 100),
                 cleared: true,
                 notes: `Interest for ${payment.month} months. You payed ${payment.payment}, with ${payment.interest} to interest and ${payment.principal} to lower the loan`
             })
