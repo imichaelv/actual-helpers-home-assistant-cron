@@ -74,7 +74,7 @@ async function runActualHelpersForHomeAssistant() {
                     await execute_script('track-investments.js')
                 }
 
-                if (options.apply_annuity) {
+                if (options.track_annuity_intrest) {
                     await execute_script('apply-annuity.js')
                 }
             }
