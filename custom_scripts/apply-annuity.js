@@ -26,7 +26,7 @@ require("dotenv").config();
                 const paymentDay = parseFloat(note.split('annuityPaymentDay:')[1].split(' ')[0])
                 const duration = parseInt(note.split('annuityLoanDuration:')[1].split(' ')[0])
                 const amount = parseFloat(note.split('annuityLoanAmount:')[1].split(' ')[0])
-                const startDate = new Date(note.split('annuityLoanAmount:')[1].split(' ')[0])
+                const startDate = new Date(note.split('annuityStartDate:')[1].split(' ')[0])
                 console.log(startDate)
                 let init = (note.indexOf('init:') > -1)
 
