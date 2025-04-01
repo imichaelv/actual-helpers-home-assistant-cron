@@ -31,6 +31,9 @@ configuration:
   track_bitcoin_price:
     name: Track Bitcoin Price
     description: Tracks the value of Bitcoin
+  track_annuity_intrest:
+    name: Track Interest of Annuity Loans
+    description: Track the interest of Annuity Loans (pay more interest first, but lower on the end of the contract)
   month_sync_day:
     name: Synchronize day
     description: On what day should the monthly synchronize start? (Preferred to be the 1st, but for debugging/first time this can be altered)

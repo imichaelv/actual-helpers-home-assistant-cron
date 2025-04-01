@@ -1,6 +1,6 @@
 name: "Actual Helpers for Home Assistant"
 description: "This is the Actual Helpers for Home Assistant integration"
-version: "1.2.0"
+version: "1.2.1"
 slug: "actual_helpers_for_home_assistant"
 arch:
   - aarch64
@@ -24,6 +24,7 @@ options:
   track_car_prices: false
   track_investment_account: false
   track_bitcoin_price: false
+  track_annuity_intrest: false
   month_sync_day: 1
 
 
@@ -40,6 +41,7 @@ schema:
   track_car_prices: bool
   track_investment_account: bool
   track_bitcoin_price: bool
+  track_annuity_intrest: bool
   month_sync_day: int
 
   # allow self-signed SSL certs
