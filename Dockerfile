@@ -8,7 +8,8 @@ COPY --from=helpers /usr/src/app /usr/src/app
 RUN apk add --no-cache \
     nodejs \
     npm \
-    git
+    git \
+
 
 
 COPY run.js /usr/src/app/run.js
