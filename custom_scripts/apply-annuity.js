@@ -51,7 +51,7 @@ require("dotenv").config();
                 const balance = await getAccountBalance(account, currentDate)
                 if (transactions.length) {
                     console.log(`== ${account.name} ==`)
-                    console.log(` -> Month into the Annuity loan ${months}`)
+                    console.log(` -> Month into the Annuity loan ${transactions[transactions.length -1].month}`)
                     console.log(`    as of date ${currentDate.toISOString()}`)
 
                     await api.importTransactions(account.id, transactions)
