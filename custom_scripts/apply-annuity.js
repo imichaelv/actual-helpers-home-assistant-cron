@@ -79,7 +79,7 @@ function calculate(currentDate, startDate, amount, annuityRate, duration, payeeI
             date.setMonth(date.getMonth() + i )
             payment = schedule[i]
             payments.push({
-                date,
+                date: new Date(date),
                 payee: payeeId,
                 amount: payment.principal,
                 cleared: true,
