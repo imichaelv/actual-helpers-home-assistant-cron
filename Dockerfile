@@ -11,6 +11,7 @@ RUN apk add --no-cache \
     git
 
 RUN npm install && npm update
+RUN npm install luxon
 
 COPY run.js /usr/src/app/run.js
 COPY custom_scripts/apply-annuity.js /usr/src/app/apply-annuity.js
