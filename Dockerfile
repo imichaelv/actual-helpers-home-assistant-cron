@@ -13,6 +13,7 @@ RUN apk add --no-cache \
 RUN npm install && npm update
 
 COPY run.js /usr/src/app/run.js
+COPY custom_scripts/apply-annuity.js /usr/src/app/apply-annuity.js
 
 ENTRYPOINT []
 USER root

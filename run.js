@@ -9,7 +9,7 @@ async function runActualHelpersForHomeAssistant() {
 
         process.env.ACTUAL_SERVER_URL = options.ACTUAL_SERVER_URL
         process.env.ACTUAL_SERVER_PASSWORD = options.ACTUAL_SERVER_PASSWORD
-        process.env.ACTUAL_SYNC_ID = options.ACTUAL_SYNC_ID
+
 
         if (options.NODE_TLS_REJECT_UNAUTHORIZED) {
             process.env.NODE_TLS_REJECT_UNAUTHORIZED= options.NODE_TLS_REJECT_UNAUTHORIZED
@@ -49,26 +49,34 @@ async function runActualHelpersForHomeAssistant() {
             process.env.BITCOIN_PAYEE_NAME = options.BITCOIN_PAYEE_NAME
         }
 
-        if (options.sync_bank) {
-            await execute_script('sync-banks.js')
-        }
-        if (options.track_bitcoin_price) {
-            await execute_script('sync-bitcoin.js')
-        }
-        const day = new Date().getDate()
-        if (day === options.month_sync_day) {
+        for (const ID of options.ACTUAL_SYNC_ID) {
+            process.env.ACTUAL_SYNC_ID = ID
 
-            if (options.apply_interest) {
-                await execute_script('apply-interest.js')
+            if (options.sync_bank) {
+                await execute_script('sync-banks.js')
             }
-            if (options.track_home_price) {
-                await execute_script('zestimate.js')
+            if (options.track_bitcoin_price) {
+                await execute_script('sync-bitcoin.js')
             }
-            if (options.track_car_prices) {
-                await execute_script('kbb.js')
-            }
-            if (options.track_investment_account) {
-                await execute_script('track-investments.js')
+            const day = new Date().getDate()
+            if (day === options.month_sync_day) {
+
+                if (options.apply_interest) {
+                    await execute_script('apply-interest.js')
+                }
+                if (options.track_home_price) {
+                    await execute_script('zestimate.js')
+                }
+                if (options.track_car_prices) {
+                    await execute_script('kbb.js')
+                }
+                if (options.track_investment_account) {
+                    await execute_script('track-investments.js')
+                }
+
+                if (options.apply_annuity) {
+                    await execute_script('apply-annuity.js')
+                }
             }
         }
     } catch (e) {

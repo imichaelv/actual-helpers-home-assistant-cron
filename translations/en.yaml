@@ -7,7 +7,7 @@ configuration:
     description: Password to connect to Actual Budget
   ACTUAL_SYNC_ID:
     name: Actual Sync ID
-    description: The ID to sync with
+    description: The ID to sync with (array)
   # allow self-signed SSL certs
   NODE_TLS_REJECT_UNAUTHORIZED:
     name: Self-signed SSL certs
