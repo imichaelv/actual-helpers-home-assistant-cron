@@ -101,7 +101,7 @@ function calculate(currentDate, startDate, amount, annuityRate, duration, payeeI
     }
 
     return [{
-        date: currentDate,
+        date: currentDate.toFormat("yyyy-MM-dd"),
         payee: payeeId,
         amount: (parseFloat(payment.principal) * 100),
         cleared: true,
