@@ -41,6 +41,8 @@ require("dotenv").config();
                 cutoff.minus({ month: 1 })
                 cutoff.set({day: 1}).plus({day: 1})
 
+                console.log(cutoff.toFormat("yyyy-MM-dd"))
+
                 const lastDate = await getLastTransactionDate(account, cutoff.toFormat("yyyy-MM-dd"), true)
                 if (!lastDate) {
                     console.log('no lastdate')
