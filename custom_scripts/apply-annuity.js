@@ -43,11 +43,11 @@ require("dotenv").config();
 
                 console.log(cutoff.toFormat("yyyy-MM-dd"))
 
-                const lastDate = await getLastTransactionDate(account, cutoff.toFormat("yyyy-MM-dd"), true)
-                if (!lastDate) {
-                    console.log('no lastdate')
-                    continue
-                }
+                // const lastDate = await getLastTransactionDate(account, cutoff.toFormat("yyyy-MM-dd"), true)
+                // if (!lastDate) {
+                //     console.log('no lastdate')
+                //     continue
+                // }
 
                 const transactions = calculate(currentDate, startDate, amount, annuityRate, duration, payeeId, init)
                 console.log(transactions)
