@@ -51,7 +51,7 @@ require("dotenv").config();
 
                 const transactions = calculate(currentDate, startDate, amount, annuityRate, duration, payeeId, init)
                 console.log(transactions)
-                const balance = await getAccountBalance(account, currentDate)
+                const balance = await getAccountBalance(account, currentDate.toFormat("yyyy-MM-dd"))
                 if (transactions.length) {
                     console.log(`== ${account.name} ==`)
                     console.log(` -> Month into the Annuity loan ${transactions[transactions.length -1].month}`)
