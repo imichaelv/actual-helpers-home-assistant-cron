@@ -78,14 +78,14 @@ require("dotenv").config();
  */
 function calculate(currentDate, startDate, amount, annuityRate, duration, payeeId, init) {
 
-    const months = currentDate.diff(startDate).toObject().months
+    const months = Math.floor((currentDate.diff(startDate, ["months"])).toObject().months)
 
     const schedule = calculateAnnuitySchedule(amount, annuityRate, duration * 12)
     let payment = schedule[months]
     if (init) {
         let payments = []
 
-        Array.from(Array(6)).forEach((_, i) => {
+        Array.from(Array(months + 1)).forEach((_, i) => {
             let date = new DateTime(startDate)
             date = date.plus({months: i} )
             payment = schedule[i]
