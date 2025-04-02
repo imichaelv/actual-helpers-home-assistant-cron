@@ -43,11 +43,11 @@ require("dotenv").config();
 
                 console.log(cutoff.toFormat("yyyy-MM-dd"))
 
-                // const lastDate = await getLastTransactionDate(account, cutoff.toFormat("yyyy-MM-dd"), true)
-                // if (!lastDate) {
-                //     console.log('no lastdate')
-                //     continue
-                // }
+                const lastDate = await getLastTransactionDate(account, cutoff.toFormat("yyyy-MM-dd"), true)
+                if (!lastDate) {
+                    console.log('no lastdate')
+                    continue
+                }
 
                 const transactions = calculate(currentDate, startDate, amount, annuityRate, duration, payeeId, init)
                 console.log(transactions)
@@ -90,7 +90,7 @@ function calculate(currentDate, startDate, amount, annuityRate, duration, payeeI
             date.plus({month: i} )
             payment = schedule[i]
             payments.push({
-                date,
+                date: date.toFormat("yyyy-MM-dd"),
                 payee: payeeId,
                 amount: (parseFloat(payment.principal) * 100),
                 cleared: true,
