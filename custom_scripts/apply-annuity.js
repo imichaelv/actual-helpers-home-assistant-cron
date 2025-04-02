@@ -35,14 +35,13 @@ require("dotenv").config();
                 if (currentDate.get('day') < paymentDay) {
                     currentDate.minus({month: 1})
                 }
-                currentDate.set({day: paymentDay, hours: 5, minutes: 0, seconds: 0})
-                // currentDate.setHours(5, 0,0,0)
+                currentDate.set({day: paymentDay, hour: 5, minute: 0, second: 0})
 
                 const cutoff = new DateTime(currentDate)
                 cutoff.minus({ month: 1 })
                 cutoff.set({day: 1}).plus({day: 1})
 
-                const lastDate = await getLastTransactionDate(account, cutoff, true)
+                const lastDate = await getLastTransactionDate(account, cutoff.toJSDate(), true)
                 if (!lastDate) {
                     console.log('no lastdate')
                     continue
