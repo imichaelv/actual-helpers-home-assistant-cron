@@ -1,5 +1,5 @@
 const util = require('util');
-const exec = util.promisify(require('child_process').exec);
+const { spawn } = require('child_process')
 const fs = require('fs')
 
 async function runActualHelpersForHomeAssistant() {
@@ -88,9 +88,21 @@ async function runActualHelpersForHomeAssistant() {
 const execute_script = async (scriptName) => {
     try {
         console.log(`Starting to execute script: ${scriptName}`)
-        const { stdout, stderr } = await exec(`node ${scriptName}`);
-        console.log(stdout);
-        console.log(stderr);
+        return new Promise((resolve, reject) => {
+            const child = spawn('node', [scriptName], {
+                stdio: 'inherit'
+            })
+            child.on('close', (code) => {
+                if (code === 0) {
+                    resolve()
+                } else {
+                    reject(new Error(`Script ${scriptName} exited with code: ${code}`))
+                }
+            })
+            child.on('error', (err) => {
+                reject(new Error(`Failed to start script ${scriptName}: ${err?.message}`))
+            })
+        })
     } catch (e) {
         console.log(`failed executing: ${scriptName}`, e )
     }
