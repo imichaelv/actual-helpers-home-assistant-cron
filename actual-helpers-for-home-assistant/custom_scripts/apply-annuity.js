@@ -1,11 +1,18 @@
 const api = require('@actual-app/api');
-const { DateTime, Duration } = require('luxon')
-const { closeBudget, ensurePayee, getAccountBalance, getAccountNote, getLastTransactionDate, openBudget, showPercent } = require('./utils');
+const { DateTime } = require('luxon')
+const {
+    closeBudget,
+    ensurePayee,
+    getAccountBalance,
+    getAccountNote,
+    getLastTransactionDate,
+    openBudget,
+} = require('./utils');
 require("dotenv").config();
 
 (async () => {
     await openBudget()
-    const payeeId = await ensurePayee(process.env.INTEREST_PAYEE_NAME || 'Loan Interest')
+
 
     const accounts = await api.getAccounts()
     for (const account of accounts) {
@@ -28,18 +35,20 @@ require("dotenv").config();
                 const duration = parseInt(note.split('annuityLoanDuration:')[1].split('\n')[0])
                 const amount = parseFloat(note.split('annuityLoanAmount:')[1].split('\n')[0])
                 const startDate = DateTime.fromISO(note.split('annuityStartDate:')[1].split('\n')[0])
+                const payeeName = note.split('payeeName:')[1].split('\n')[0]
+                const payeeId = await ensurePayee(payeeName || process.env.INTEREST_PAYEE_NAME || 'Loan Interest')
                 console.log('startDate', startDate)
                 let init = (note.indexOf('init:') > -1)
 
                 const currentDate = DateTime.now()
                 if (currentDate.get('day') < paymentDay) {
-                    currentDate.minus({month: 1})
+                    currentDate.minus({ month: 1 })
                 }
-                currentDate.set({day: paymentDay, hour: 5, minute: 0, second: 0})
+                currentDate.set({ day: paymentDay, hour: 5, minute: 0, second: 0 })
 
                 const cutoff = new DateTime(currentDate)
                 cutoff.minus({ month: 1 })
-                cutoff.set({day: 1}).plus({day: 1})
+                cutoff.set({ day: 1 }).plus({ day: 1 })
 
                 console.log(cutoff.toFormat("yyyy-MM-dd"))
 
@@ -54,7 +63,7 @@ require("dotenv").config();
                 const balance = await getAccountBalance(account, currentDate.toFormat("yyyy-MM-dd"))
                 if (transactions.length) {
                     console.log(`== ${account.name} ==`)
-                    console.log(` -> Month into the Annuity loan ${transactions[transactions.length -1].month}`)
+                    console.log(` -> Month into the Annuity loan ${transactions[transactions.length - 1].month}`)
                     console.log(`    as of date ${currentDate.toISODate()}`)
 
                     await api.importTransactions(account.id, transactions)
@@ -87,7 +96,7 @@ function calculate(currentDate, startDate, amount, annuityRate, duration, payeeI
 
         Array.from(Array(months + 1)).forEach((_, i) => {
             let date = new DateTime(startDate)
-            date = date.plus({months: i} )
+            date = date.plus({ months: i })
             payment = schedule[i]
             payments.push({
                 date: date.toFormat("yyyy-MM-dd"),
