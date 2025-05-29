@@ -35,7 +35,9 @@ require("dotenv").config();
                 const duration = parseInt(note.split('annuityLoanDuration:')[1].split('\n')[0])
                 const amount = parseFloat(note.split('annuityLoanAmount:')[1].split('\n')[0])
                 const startDate = DateTime.fromISO(note.split('annuityStartDate:')[1].split('\n')[0])
-                const payeeName = note.split('payeeName:')[1].split('\n')[0]
+                const payeeName = (note?.includes('payeeName:')) ?
+                    note.split('payeeName:')[1].split('\n')[0].trim() :
+                    undefined
                 const payeeId = await ensurePayee(payeeName || process.env.INTEREST_PAYEE_NAME || 'Loan Interest')
                 console.log('startDate', startDate)
                 let init = (note.indexOf('init:') > -1)
