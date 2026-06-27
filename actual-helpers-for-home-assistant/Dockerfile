@@ -1,8 +1,6 @@
-ARG BUILD_FROM
 FROM ghcr.io/psybers/actual-helpers AS helpers
 
-ARG BUILD_FROM
-FROM $BUILD_FROM AS ha_base
+FROM ghcr.io/home-assistant/base:latest AS ha_base
 
 WORKDIR /usr/src/app
 COPY --from=helpers /usr/src/app /usr/src/app
